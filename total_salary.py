@@ -1,6 +1,6 @@
 def total_salary(path):
     try:
-        with open("salary_file.txt", 'r', encoding='utf-8') as file:
+        with open("task1/salary_file.txt", 'r', encoding='utf-8') as file:
             salaries = []
             for line in file:
                 # Видаляємо зайві пробіли та розділяємо рядок за комою
@@ -17,13 +17,13 @@ def total_salary(path):
 
     except FileNotFoundError:
         print(f"Файл за шляхом {path} не знайдено.")
-        return None
+        return None, None
     except ValueError:
         print("Неправильний формат даних у файлі.")
-        return None
+        return None, None
     except TypeError:
         print("Cannot unpack non-iterable Nonetype object")
-        return None
+        return None, None
 
 total, average = total_salary("task1/salary_file.txt")
 print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
